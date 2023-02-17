@@ -53,8 +53,8 @@ router.get('/dashboard',
         res.redirect('/');
     }
 }, 
-(req, res) => {// real dashboard
-    res.send('this is dashboard')
+async (req, res) => {// real dashboard
+    res.send(await getUser({id:session.userid}));
 });
 
 router.get('/logout', (req, res) => {

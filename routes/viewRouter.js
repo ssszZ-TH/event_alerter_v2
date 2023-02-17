@@ -33,8 +33,6 @@ function getUserId(un, pw) {
 
 var session;
 
-
-
 //login api
 router.post('/login', async (req, res)=>{ 
     //console.log("in the session :",req.session);

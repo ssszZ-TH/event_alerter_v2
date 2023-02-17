@@ -9,12 +9,12 @@ router.get('/views/app.css', (req, res) => {
     res.sendFile('../views/app.css', { root: __dirname });
 });
 
-// login
+//หน้าที่ check ว่า ต้อง มีการ auth ป่าว หรือว่าไม่ต้อง auth ละ
 router.get('/', (req, res) => { 
     session = req.session;
     if (session.userid) {
         console.log(req.session)
-        res.send("Welcome User <a href=\'/logout'>click to logout</a>");
+        res.send("<a href=\'/logout'>click to logout</a>");
     } else
         res.render('login.ejs'); // the most beutiful login ever (may be) 
 });
@@ -31,9 +31,13 @@ function getUserId(un, pw) {
     });
 }
 
+function getUser(){
+
+}
+
 var session;
 
-//login api
+//login api ไม่สามารถ get ปกติได้
 router.post('/login', async (req, res)=>{ 
     //console.log("in the session :",req.session);
     //if (req.body.username == myusername && req.body.password == mypassword) { // ไว้เเเบบ ไม่มี database
@@ -54,7 +58,7 @@ router.get('/dashboard',
 (req,res,next)=>{ //after dashboard
     session = req.session;
     if (session.userid){
-        res.send('now loading dashboard . . .');
+        //res.send('now loading dashboard . . .');
         next();//เข้าสู่ dashboard จริงๆ
     }else{
         res.send('U must login before use dashboard<br> <a href="/">login</a>');
@@ -66,7 +70,7 @@ router.get('/dashboard',
 
 router.get('/logout', (req, res) => {
     req.session.destroy();
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 module.exports = router;

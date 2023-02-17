@@ -7,7 +7,7 @@ const viewRouter = require('./routes/viewRouter.js');
 const oneDay = 1000 * 60 * 60 * 24;
 
 app.use(sessions({
-    secret: "spasecretขี้",
+    secret: "spasecretภาษาไทย",
     saveUninitialized: true,
     cookie: { maxAge: oneDay },
     resave: false

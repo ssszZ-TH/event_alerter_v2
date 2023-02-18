@@ -13,12 +13,18 @@
     <div class="flex-container">
 
         <div class="flex-event">
-            even event event
+            event
         </div>
 
         <div class="flex-profile">
-            welcome <%= data.userData.fname %> <%= data.userData.lname %>
-            
+            <h1>welcome <%=data.user.fname%> <%= data.user.lname %></h1>
+            <h1>cdtiStudentId : <%= data.user.username %></h1>
+            <h1>yourScore : <%= data.user.score %></h1>
+            <% if(data.user.score>=100){ %>
+                <h1 class="text-success">you passed</h1>
+            <% }else{ %>
+                <h1><%= 100-data.user.score %></h1>
+            <% } %>
         </div>
 
     </div>

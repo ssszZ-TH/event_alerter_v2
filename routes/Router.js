@@ -54,8 +54,8 @@ router.get('/dashboard',
     }
 }, 
 async (req, res) => {// real dashboard
-    let userData = await getUser({id:session.userid});
-    res.render('dashboard.ejs',{data:{userData:userData}});
+    const user = (await getUser({id:session.userid}))[0];//เอาเเค่ตัวเดียว
+    res.render('dashboard.ejs',{data:{user:user}});
 });
 
 router.get('/logout', (req, res) => {

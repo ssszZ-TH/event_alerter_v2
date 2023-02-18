@@ -1,37 +1,34 @@
 * {
     box-sizing: border-box;
     padding: 0px;
-    margin:0px;
+    margin: 0px;
 }
 
-body{
+body {
     background: url(/mainbg.jpg) repeat;
 }
 
 .flex-container {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     font-size: 30px;
     text-align: center;
+    justify-content: center;
 }
 
 .flex-event {
-    margin:20px;
-    border : solid black;
+    width: 500px;
+    margin: 20px;
+    border: dashed black;
     padding: 10px;
-    flex: 50%;
+    flex-grow: 1;
 }
 
 .flex-profile {
-    margin:20px;
-    border : solid black;
+    width: 500px;
+    margin: 20px;
+    border: dashed black;
     padding: 10px;
-    flex: 50%;
-}
-
-/* Responsive layout - makes a one column-layout instead of two-column layout */
-@media (max-width: 800px) {
-    .flex-container {
-        flex-direction: column;
-    }
+    flex-grow: 1;
 }

@@ -5,22 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/spa.css">
+
     <title>event alerter</title>
 </head>
 
 <body>
     <form action="/login" method="post">
-        <fieldset>
-            <legend style="font-size: 30px;">Login</legend>
-            <div class="input-field">
-                <input type="text" name="username" id="username" placeholder="Enter Username">
+        <div class="wrapper">
+            <div class="logo">
+                <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png"
+                    alt="">
             </div>
-            <div class="input-field">
-                <input type="password" name="password" id="password" placeholder="Enter Password">
+            <div class="text-center mt-4 name">
+                eventAlerter made by sitthipong
             </div>
-            <input class="submitbutton" type="submit" value="LogIn">
-        </fieldset>
+            <form class="p-3 mt-3">
+                <div class="form-field d-flex align-items-center">
+                    <span class="far fa-user"></span>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                </div>
+                <div class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <input class="btn mt-3" type="submit" value="Login">
+            </form>
+            <div class="text-center fs-6">
+                <a href="#">Forget password?</a> or <a href="#">Sign up</a>
+            </div>
+        </div>
     </form>
 </body>
 

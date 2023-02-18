@@ -54,7 +54,8 @@ router.get('/dashboard',
     }
 }, 
 async (req, res) => {// real dashboard
-    res.send(await getUser({id:session.userid}));
+    let userData = await getUser({id:session.userid});
+    
 });
 
 router.get('/logout', (req, res) => {

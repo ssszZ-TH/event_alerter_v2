@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const sessions = require('express-session');
 const cookieParser = require("cookie-parser");
-const loginRouter = require('./routes/loginRouter.js');
+const mainRouter = require('./routes/Router.js');
 
 const oneDay = 1000 * 60 * 60 * 24;
 
@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.set('view engine','ejs');
 
 // a lot of route
-app.use('/', loginRouter);
+app.use('/', mainRouter);
 app.use(express.static('public')) // folder สาธราณะ ไม่ต้องเข้าผ่าน route
 
 

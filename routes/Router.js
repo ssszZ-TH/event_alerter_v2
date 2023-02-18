@@ -55,7 +55,7 @@ router.get('/dashboard',
 }, 
 async (req, res) => {// real dashboard
     let userData = await getUser({id:session.userid});
-    res.render('dashboard.ejs',{data:{/** ทำต่อด้วย */}});
+    res.render('dashboard.ejs',{data:{userData:userData}});
 });
 
 router.get('/logout', (req, res) => {

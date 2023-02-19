@@ -41,7 +41,7 @@ nodemon@2.0.20
 
 # model
 
-example record in user collection 
+ตัวอย่าง record ใน user collection 
 
     {
     "username": "test",
@@ -58,6 +58,12 @@ example record in user collection
 - เป็นนักศึกษาคนใหน
 
 ตัวอย่าง 64 103010 19  รหัสนึกศีกษาผมเองเเหละ โดยที่ 19 น่าจะเป็นเลขที่
+
+<br>
+<br>
+
+
+ตัวอย่าง record ใน event collection
 
     {
     title: "demotitle",
@@ -76,6 +82,20 @@ example record in user collection
 
 จาก `./models/eventModel.js`
 
+    const allBranch=["fdt", "bba", "btech"];// ดิจิตอล บริหาร วิศวะไฟฟ้า
+    const allGen=[62,63,64,65];// ปีที่สมัครเข้า 
+
+>
+
     requireGen:{type: Array, default: allGen},
     requireBranch: { type: Array, default: allBranch},
 
+
+# จะทำอะไรต่อมั้ย
+
+ทำหน้า สำหรับ admin
+
+- `crud events เเบบมีหน้า gui`
+- `crud users เเบบมีหน้า gui`
+
+ถามว่าทำไมต้องเติม `s` ก็มันเป็น พหุพจน์ไง

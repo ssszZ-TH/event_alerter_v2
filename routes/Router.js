@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router()
-const getUser = require('../controller/user_controller.js').getUser;
+const getUsers = require('../controller/user_controller.js').getUsers;
 const getUserId = require('../controller/user_controller.js').getUserId;
-// a variable to save a session
+const getEvents = require('../controller/event-controller.js');
 
+// a variable to save a session
+var session;
 
 router.get('/views/app.css', (req, res) => {
     res.sendFile('../views/app.css', { root: __dirname });
@@ -15,13 +17,8 @@ router.get('/', (req, res) => {
     if (session.userid) {
         res.redirect('/dashboard');
     } else
-        res.render('login.ejs'); // the most beutiful login ever (may be) 
+    res.render('login.ejs'); // the most beutiful login ever (may be) 
 });
-
-
-
-
-var session;
 
 //login api ไม่สามารถ get ปกติได้
 router.post('/login', async (req, res)=>{ 
@@ -53,8 +50,9 @@ router.get('/dashboard',
     }
 }, 
 async (req, res) => {// real dashboard
-    const user = (await getUser({id:session.userid}))[0];//เอาเเค่ตัวเดียว
-    res.render('dashboard.ejs',{data:{user:user}});
+    const user = (await getUsers({id:session.userid}))[0];//เอาเเค่ตัวเดียว
+    const events = await getEvents({});
+    res.render('dashboard.ejs',{data:{user:user,events:events}});
 });
 
 router.get('/logout', (req, res) => {

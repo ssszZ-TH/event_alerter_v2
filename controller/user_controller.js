@@ -10,7 +10,7 @@ function getUserId(un, pw) {
     });
 }
 
-function getUser(in_json){
+function getUsers(in_json){
     return new Promise((resolve, reject) => {
         users.find(in_json,(err,data)=>{
             if(err) reject(err);
@@ -19,4 +19,4 @@ function getUser(in_json){
     });
 }
 
-module.exports = {getUserId:getUserId, getUser:getUser}
+module.exports = {getUserId:getUserId, getUsers:getUsers};

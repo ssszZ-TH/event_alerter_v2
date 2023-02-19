@@ -11,6 +11,16 @@
 
 <br>
 
+# จะทำอะไรต่อมั้ย
+
+ทำหน้า สำหรับ admin
+
+- `crud events เเบบมีหน้า gui`
+- `crud users เเบบมีหน้า gui`
+
+ถามว่าทำไมต้องเติม `s` ก็มันเป็น พหุพจน์ไง
+
+<br><br>
 # requirement
 
 $ npm list --save
@@ -62,8 +72,7 @@ nodemon@2.0.20
 <br>
 <br>
 
-
-ตัวอย่าง record ใน event collection
+ตัวอย่าง record ใน `event collection`
 
     {
     title: "demotitle",
@@ -77,8 +86,28 @@ nodemon@2.0.20
         hour: 16,
         minites:22
     }
+    }
 
-โดยที่ requireGen กับ requireBranch ไม่ต้องใส่ก็ได้ เพราะว่าผม set ค่า default ไว้เเล้ว
+ตอนไป `insert data` หน้าตาจะประมานนี้ มันจะ auto gen id ขึ้นมาให้
+
+    {
+    "_id": {
+        "$oid": "63f1fe2f8a4681104b05632c"
+    },
+    "title": "demotitle",
+    "discribe": "demodescription",
+    "requireBranch": ["fdt", "btech"],
+    "requireGen": [64, 65],
+    "start": {
+        "year": 2023,
+        "month": 2,
+        "day": 19,
+        "hour": 16,
+        "minites": 22
+    }
+    }
+
+โดยที่ `requireGen` กับ `requireBranch` `ไม่ต้องใส่ก็ได้` เพราะว่าผม set ค่า default ไว้เเล้ว ว่าหมายถึงเป็นของทุกสาขา หรือของทุกชั้นปี
 
 จาก `./models/eventModel.js`
 
@@ -90,12 +119,3 @@ nodemon@2.0.20
     requireGen:{type: Array, default: allGen},
     requireBranch: { type: Array, default: allBranch},
 
-
-# จะทำอะไรต่อมั้ย
-
-ทำหน้า สำหรับ admin
-
-- `crud events เเบบมีหน้า gui`
-- `crud users เเบบมีหน้า gui`
-
-ถามว่าทำไมต้องเติม `s` ก็มันเป็น พหุพจน์ไง

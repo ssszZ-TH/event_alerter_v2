@@ -1,6 +1,2 @@
-users = require('./models/userModel.js');
-
-users.findOne({ username: "sp", password: "pass" }, (err, data) => {
-    if (err) { return console.log("have problem to fetching database"); }
-    console.log(data); // not found u get null
-})
+let a = {name:"spa", age:20, python:100}
+console.log(a);

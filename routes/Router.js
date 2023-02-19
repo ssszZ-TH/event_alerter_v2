@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router()
-const users = require('../models/userModel.js');
 const getUser = require('../controller/user_controller.js').getUser;
 const getUserId = require('../controller/user_controller.js').getUserId;
 // a variable to save a session

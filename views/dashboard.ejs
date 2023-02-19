@@ -23,7 +23,7 @@
             <% if(data.user.score>=100){ %>
                 <h1 class="text-success">you passed</h1>
             <% }else{ %>
-                <h1><%= 100-data.user.score %></h1>
+                <h1 class="text-danger"><%= 100-data.user.score %> score to passed</h1>
             <% } %>
         </div>
 

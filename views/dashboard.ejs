@@ -32,8 +32,13 @@
                     <hr>
                     <p> <%= event.discribe %></p>
                     <p>recomended branch :
-                        <% event.requireBranch.forEach(reccomend => { %>
-                            <%= reccomend %>
+                        <% event.requireBranch.forEach(branch => { %>
+                            <%= branch %>
+                        <% }) %>
+                    </p>
+                    <p>recomended generation :
+                        <% event.requireGen.forEach(gen => { %>
+                            <%= gen %>
                         <% }) %>
                     </p>
                 </div>

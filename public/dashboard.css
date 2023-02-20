@@ -43,9 +43,19 @@ body {
 }
 
 .event-flex-container > div {
-    background-color: #ffffff7e;
+    background-color: #fffeec;
     width: 400px;
     margin: 10px;
     text-align: center;
     line-height: 75px;
-  }
+    border-radius: 30px;
+    box-shadow: 5px 10px #26d4ff67;
+}
+
+.event-flex-container > div > h1{
+    font-size: 22px;
+    margin-top: 10px;
+}
+.event-flex-container > div > p{
+    font-size: 18px;
+}

@@ -24,11 +24,18 @@
         </div>
 
         <div class="flex-event">
-            <h1>all event in this place</h1> 
+            <h1>events</h1>
             <div class="event-flex-container">
             <% data.events.forEach(event => { %>
                 <div>
-                    <p1><%= event %></p1>
+                    <h1><%= event.title %> </h1>
+                    <hr>
+                    <p> <%= event.discribe %></p>
+                    <p>recomended branch :
+                        <% event.requireBranch.forEach(reccomend => { %>
+                            <%= reccomend %>
+                        <% }) %>
+                    </p>
                 </div>
             <% }) %>
             </div>

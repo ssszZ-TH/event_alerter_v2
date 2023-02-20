@@ -8,6 +8,8 @@ body {
     background: url(/mainbg.jpg) repeat;
 }
 
+
+
 .flex-container {
     flex-wrap: wrap;
     display: flex;
@@ -36,13 +38,14 @@ body {
 .event-flex-container {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
 }
 
 .event-flex-container > div {
-    background-color: #0000004f;
-    width: 200px;
+    background-color: #ffffff7e;
+    width: 400px;
     margin: 10px;
     text-align: center;
     line-height: 75px;
-    font-size: 30px;
   }

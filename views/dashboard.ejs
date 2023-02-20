@@ -12,10 +12,6 @@
 <body> 
     <div class="flex-container">
 
-        <div class="flex-event">
-            event
-        </div>
-
         <div class="flex-profile">
             <h1>welcome <%=data.user.fname%> <%= data.user.lname %></h1>
             <h1>cdtiStudentId : <%= data.user.username %></h1>
@@ -25,6 +21,17 @@
             <% }else{ %>
                 <h1 class="text-danger"><%= 100-data.user.score %> score to passed</h1>
             <% } %>
+        </div>
+
+        <div class="flex-event">
+            <h1>all event in this place</h1> 
+            <div class="event-flex-container">
+            <% data.events.forEach(event => { %>
+                <div>
+                    <p1><%= event %></p1>
+                </div>
+            <% }) %>
+            </div>
         </div>
 
     </div>

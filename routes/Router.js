@@ -50,7 +50,8 @@ router.get('/dashboard',
     }
 }, 
 async (req, res) => {// real dashboard
-    const user = (await getUsers({id:req.session.userid}))[0];//เอาเเค่ตัวเดียว
+    console.log("data in reqsession is", req.session);
+    const user = (await getUsers({_id:req.session.userid}))[0];//เอาเเค่ตัวเดียว
     const events = await getEvents({});
     console.log("go indash board as", user.id);  
     res.render('dashboard.ejs',{data:{user:user,events:events}});

@@ -21,14 +21,14 @@ body {
 
 .flex-event {
     width: 500px;
-    margin: 20px;
+    margin: 30px;
     padding: 10px;
     flex-grow: 1;
 }
 
 .flex-profile {
     width: 500px;
-    margin: 20px;
+    margin: 30px;
     padding: 10px;
     flex-grow: 1;
 }

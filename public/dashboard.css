@@ -22,7 +22,6 @@ body {
 .flex-event {
     width: 500px;
     margin: 20px;
-    border: dashed black;
     padding: 10px;
     flex-grow: 1;
 }
@@ -30,7 +29,6 @@ body {
 .flex-profile {
     width: 500px;
     margin: 20px;
-    border: dashed black;
     padding: 10px;
     flex-grow: 1;
 }

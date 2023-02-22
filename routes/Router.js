@@ -3,6 +3,7 @@ const router = express.Router()
 const getUsers = require('../controller/user_controller.js').getUsers;
 const getUserId = require('../controller/user_controller.js').getUserId;
 const getEvents = require('../controller/event-controller.js');
+const getaAdminId = require('../controller/adminController.js');
 
 // a variable to save a session
 var session;
@@ -56,13 +57,26 @@ async (req, res) => {/**if has log in yet */
     res.render('dashboard.ejs',{data:{user:user,events:events}});
 });
 
-router.get('/adminboard', 
-(req,res,next)=>{
-    
-},(req,res)=>{
-/**if has login yet */
-
+router.get('/admin',(req,res)=>{ /**for render login page */
+    res.render('adminLogin.ejs');
 });
+
+router.post('/admin/login',  /**for recive data from login form */
+async (req,res)=>{
+    let id = await getaAdminId(req.body.username, req.body.password);
+    if(id===""){
+        /** log in fail */
+        res.redirect('/admin');
+    }else{
+        /**login passed */
+        res.redirect('/adminboard');
+    }});
+
+router.get('/adminboard',(req,res,next)=>{
+    res.send("this is adminboard");
+});
+
+
 
 router.get('/logout', (req, res) => {
     req.session.destroy();

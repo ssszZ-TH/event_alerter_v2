@@ -22,9 +22,11 @@ app.set('view engine','ejs');
 app.use('/', mainRouter);
 app.use(express.static('public')) // folder สาธราณะ ไม่ต้องเข้าผ่าน route
 
+app.get('*',(req,res)=>{
+    res.render('404.ejs');
+});
 
 const port = 3000;
-
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
 }) 

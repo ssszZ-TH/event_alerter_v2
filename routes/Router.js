@@ -49,11 +49,19 @@ router.get('/dashboard',
         res.redirect('/');
     }
 }, 
-async (req, res) => {// real dashboard
+async (req, res) => {/**if has log in yet */
     const user = (await getUsers({_id:req.session.userid}))[0];//เอาเเค่ตัวเดียว
     const events = await getEvents({});
     console.log(user.id, "goto dashboard");  
     res.render('dashboard.ejs',{data:{user:user,events:events}});
+});
+
+router.get('/adminboard', 
+(req,res,next)=>{
+    
+},(req,res)=>{
+/**if has login yet */
+
 });
 
 router.get('/logout', (req, res) => {

@@ -64,7 +64,6 @@ router.get('/admin',(req,res)=>{ /**for render login page */
 router.post('/admin/login',  /**for recive data from login form */
 async (req,res)=>{
     let id = await getaAdminId(req.body.username, req.body.password);
-    console.log("admin id is",id);
     if(id===""){
         /** log in fail */
         res.redirect('/admin');
@@ -72,6 +71,7 @@ async (req,res)=>{
         /**login passed */
         session = req.session;
         session.adminid = id;
+        console.log('admin',session.adminid,'loged in');
         res.redirect('/adminboard');
     }});
 

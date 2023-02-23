@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +9,76 @@
     <link rel="stylesheet" href="/js/bootstrap.bundle.min.js">
     <title>admin dashboard</title>
 </head>
-<body>
-    <h1>รายชื่อนักศึกษาทั้งหมด</h1>
 
-    <div class="p-3 mb-2 bg-secondary text-white">
-    <!-- student box -->
-        klfjkdlsafjkld;s
+<style>
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flex-container>div {
+        margin: 5px;
+    }
+</style>
+
+<body>
+    <h1>Students</h1>
+
+    <div class="p-3 mb-2 bg-secondary text-dark flex-container">
+        <!-- student site -->
+
+        <!-- loop สร้าง card user -->
+        <% data.users.forEach(user=> { %>
+            <div class="card bg-info btn-warning" style="width: 18rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center"><%- user.fname %> <%- user.lname %></h5>
+                    <p class="card-text">
+
+                        username:<%- user.username %><br>
+                            password:<%- user.password %><br>
+                                score:<%- user.score %>
+                                    <hr>
+                                    id:<%- user._id %>
+                    </p>
+                    <a href="#" class="btn bg-warning">Edit</a>
+                </div>
+            </div>
+            <% }) %>
+
+
     </div>
 
-    <div class="p-3 mb-2 bg-info text-dark">
-    <!-- events box -->
-        fdjksla;jfdkls;a
+    <h1>Events</h1>
+
+    <div class="p-3 mb-2 bg-secondary text-dark flex-container">
+        <!-- events site -->
+        <% data.events.forEach(event=> { %>
+            <div class="card bg-info btn-warning" style="width: 18rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <%- event.title %>
+
+                    </h5>
+                    <p class="card-text">
+                        <%- event.discribe %>
+                            <hr>
+                            คณะที่ต้องทำ <%- event.requireBranch %><br>
+                                รุ่นที่ต้องทำ <%- event.requireGen %>
+                                    <hr>
+                                    event start
+                                    <%- event.start.day %>
+                                        <%- event.start.month %>
+                                            <%- event.start.year %>
+                                                at<%- event.start.hour %>:<%- event.start.minites %><hr>
+                                                id:<%- event._id %>
+                    </p>
+                    <a href="#" class="btn bg-warning">Edit</a>
+                </div>
+            </div>
+            <% }) %>
     </div>
 </body>
+
 </html>

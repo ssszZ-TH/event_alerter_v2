@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,43 +10,60 @@
     <link rel="stylesheet" href="/dashboard.css">
     <title>DashBoard</title>
 </head>
-<body> 
+
+<body>
     <div class="flex-container">
 
         <div class="flex-profile">
-            <h1>welcome <%=data.user.fname%> <%= data.user.lname %></h1>
-            <h1>cdtiStudentId : <%= data.user.username %></h1>
-            <h1>yourScore : <%= data.user.score %></h1>
+            <h1>welcome <%=data.user.fname%>
+                    <%= data.user.lname %>
+            </h1>
+            <h1>cdtiStudentId : <%= data.user.username %>
+            </h1>
+            <h1>yourScore : <%= data.user.score %>
+            </h1>
             <% if(data.user.score>=100){ %>
                 <h1 class="text-success">you passed</h1>
-            <% }else{ %>
-                <h1 class="text-danger"><%= 100-data.user.score %> score to passed</h1>
-            <% } %>
+                <% }else{ %>
+                    <h1 class="text-danger">
+                        <%= 100-data.user.score %> score to passed
+                    </h1>
+                    <% } %>
         </div>
 
         <div class="flex-event">
             <h1>events</h1>
             <div class="event-flex-container">
-            <% data.events.forEach(event => { %>
-                <div>
-                    <h1><%= event.title %> </h1>
-                    <hr>
-                    <p> <%= event.discribe %></p>
-                    <p>recomended branch :
-                        <% event.requireBranch.forEach(branch => { %>
-                            <%= branch %>
-                        <% }) %>
-                    </p>
-                    <p>recomended generation :
-                        <% event.requireGen.forEach(gen => { %>
-                            <%= gen %>
-                        <% }) %>
-                    </p>
-                </div>
-            <% }) %>
+                <% data.events.forEach(event=> { %>
+                    <div>
+                        <h1>
+                            <%= event.title %>
+                        </h1>
+                        <hr>
+                        <p>
+                            <%= event.discribe %>
+                        </p>
+                        <p>recomended branch :
+                            <% event.requireBranch.forEach(branch=> { %>
+                                <%= branch %>
+                                    <% }) %>
+                        </p>
+                        <p>recomended generation :
+                            <% event.requireGen.forEach(gen=> { %>
+                                <%= gen %>
+                                    <% }) %>
+                        </p>
+                        event start
+                        <%- event.start.day %>
+                            <%- event.start.month %>
+                                <%- event.start.year %>
+                                    at<%- event.start.hour %>:<%- event.start.minites %>
+                    </div>
+                    <% }) %>
             </div>
         </div>
 
     </div>
 </body>
+
 </html>

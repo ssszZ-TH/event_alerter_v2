@@ -93,7 +93,19 @@ router.get('/adminboard',(req,res,next)=>{
     }});
 });
 
-
+router.get('/user/:id',(req,res,next)=>{
+    session = req.session
+    if(session.adminid){
+        /**has login yet */
+        next();
+    }else{
+        /**has not login yet must go to login*/
+        res.redirect('/admin');
+    }
+},(req,res)=>{
+    let id = req.params.id;
+    console.log('admin editing',id);
+});
 
 router.get('/logout', (req, res) => {
     req.session.destroy();

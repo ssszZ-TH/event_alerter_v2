@@ -105,7 +105,11 @@ router.get('/user/:id',(req,res,next)=>{
 },(req,res)=>{
     let id = req.params.id;
     console.log('admin editing',id);
+    res.render('edituser.ejs',{data:{
+        /**ทำต่อตรงนี้   ฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝ */
+    }});
 });
+
 
 router.get('/logout', (req, res) => {
     req.session.destroy();

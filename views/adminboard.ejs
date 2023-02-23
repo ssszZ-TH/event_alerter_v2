@@ -71,10 +71,11 @@
                                     <%- event.start.day %>
                                         <%- event.start.month %>
                                             <%- event.start.year %>
-                                                at<%- event.start.hour %>:<%- event.start.minites %><hr>
-                                                id:<%- event._id %>
+                                                at<%- event.start.hour %>:<%- event.start.minites %>
+                                                        <hr>
+                                                        id:<%- event._id %>
                     </p>
-                    <a href="#" class="btn bg-warning">Edit</a>
+                    <a href="/event/<%-event._id%>" class="btn bg-warning">Edit</a>
                 </div>
             </div>
             <% }) %>

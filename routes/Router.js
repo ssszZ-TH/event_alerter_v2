@@ -95,6 +95,17 @@ router.get('/adminboard',(req,res,next)=>{
     }});
 });
 
+router.get('/user/create', (req,res,next)=>{
+    session = req.session
+    if(session.adminid){
+        next()
+    }else{
+        res.redirect('/admin');
+    }
+},(req,res)=>{
+    res.render('createUser.ejs');
+});
+
 router.get('/user/:id',(req,res,next)=>{
     session = req.session
     if(session.adminid){

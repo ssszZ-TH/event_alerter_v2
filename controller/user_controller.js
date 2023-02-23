@@ -20,8 +20,8 @@ function getUsers(in_json){
 }
 
 function setUser(filter, newData){
-    console.log('fileter is ',filter);
-    console.log('newdata is',newData);
+    // console.log('fileter is ',filter);
+    // console.log('newdata is',newData);
     return new Promise((resolve, reject) => {
         users.updateOne(filter, newData,(err,data)=>{
             if(err) reject(err);
@@ -30,4 +30,13 @@ function setUser(filter, newData){
     })
 }
 
-module.exports = {getUserId:getUserId, getUsers:getUsers, setUser:setUser};
+function createUser(newUser){
+    return new Promise((resolve, reject) => {
+        users.create(newUser,(err,data)=>{
+            if(err) reject(err);
+            resolve(data);
+        });
+    })
+}
+
+module.exports = {getUserId:getUserId, getUsers:getUsers, setUser:setUser, createUser:createUser};

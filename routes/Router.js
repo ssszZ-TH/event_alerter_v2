@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router()
 const getUsers = require('../controller/user_controller.js').getUsers;
 const getUserId = require('../controller/user_controller.js').getUserId;
-const setUser = require('../controller/user_controller').setUser;
+const setUser = require('../controller/user_controller.js').setUser;
+const createUser = require('../controller/user_controller.js').createUser;
 const getEvents = require('../controller/event-controller.js');
 const getaAdminId = require('../controller/adminController.js');
 
@@ -104,6 +105,20 @@ router.get('/user/create', (req,res,next)=>{
     }
 },(req,res)=>{
     res.render('createUser.ejs');
+});
+
+router.post('/user/create',(req,res,next)=>{
+    session = req.session
+    if(session.adminid){
+        /**has loged in yet */
+        next()
+    }else{
+        res.redirect('/admin');
+    }
+},async(req,res)=>{
+    /** create new user */
+    await createUser(req.body);
+    res.redirect('/adminboard')
 });
 
 router.get('/user/:id',(req,res,next)=>{

@@ -19,4 +19,15 @@ function getUsers(in_json){
     });
 }
 
-module.exports = {getUserId:getUserId, getUsers:getUsers};
+function setUser(filter, newData){
+    console.log('fileter is ',filter);
+    console.log('newdata is',newData);
+    return new Promise((resolve, reject) => {
+        users.updateOne(filter, newData,(err,data)=>{
+            if(err) reject(err);
+            resolve(data);
+        })
+    })
+}
+
+module.exports = {getUserId:getUserId, getUsers:getUsers, setUser:setUser};

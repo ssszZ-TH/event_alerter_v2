@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router()
 const getUsers = require('../controller/user_controller.js').getUsers;
 const getUserId = require('../controller/user_controller.js').getUserId;
+const setUser = require('../controller/user_controller').setUser;
 const getEvents = require('../controller/event-controller.js');
 const getaAdminId = require('../controller/adminController.js');
+
 
 // a variable to save a session
 var session;
@@ -102,14 +104,25 @@ router.get('/user/:id',(req,res,next)=>{
         /**has not login yet must go to login*/
         res.redirect('/admin');
     }
-},(req,res)=>{
-    let id = req.params.id;
-    console.log('admin editing',id);
+},async (req,res)=>{
+    let user = (await getUsers({_id:req.params.id}))[0];
     res.render('edituser.ejs',{data:{
-        /**ทำต่อตรงนี้   ฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝฝ */
+        user:user
     }});
 });
 
+router.post('/user/update',(req,res,next)=>{
+    session = req.session
+    if(session.adminid){
+        next(); 
+    }else{
+        res.redirect('/admin');
+    }
+},async(req,res)=>{
+    let in_json = req.body;
+    await setUser({_id:in_json.id},in_json).catch((err)=>{res.send("fail to update :",err); res.redirect('/adminboard');});
+    res.redirect('/adminboard');
+});
 
 router.get('/logout', (req, res) => {
     req.session.destroy();

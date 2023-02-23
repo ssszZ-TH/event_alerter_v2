@@ -12,7 +12,20 @@
 <h1>user editor</h1>
 
 <body>
-    
+    <div class="card" style="width: 18rem;">
+        <div class="card-header bg-primary">
+            <a href="/adminboard" class="text-dark">back to admin board</a>
+        </div>
+        <ul class="list-group list-group-flush">
+            <form action="/user/update" method="post">
+                <input hidden class="list-group-item" name="id" value="<%- data.user.id %>">
+                <input class="list-group-item" name="fname" value="<%-data.user.fname%>">
+                <input class="list-group-item" name="lname" value="<%-data.user.lname%>">
+                <input class="list-group-item" name="score" value="<%-data.user.score%>">
+                <input type="submit" value="update">
+            </form>
+        </ul>
+    </div>
 </body>
 
 </html>

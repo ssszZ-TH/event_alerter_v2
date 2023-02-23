@@ -84,8 +84,13 @@ router.get('/adminboard',(req,res,next)=>{
         /**not has login before */
         res.redirect('/admin');
     }
-},(req,res)=>{
-    res.send("this is admin dashboard");
+},async (req,res)=>{
+    let users = await getUsers({});
+    let events = await getEvents({});
+    res.render('adminboard.ejs',{data:{
+        users: users,
+        events:events
+    }});
 });
 
 

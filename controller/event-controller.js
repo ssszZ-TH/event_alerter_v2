@@ -10,4 +10,16 @@ function getEvents(in_json){
     });
 }
 
-module.exports=getEvents;
+function createEvent(newEvent) {
+    return new Promise((resolve, reject) => {
+        events.create(newEvent,(err,data)=>{
+            if (err) reject(err);
+            else resolve(data);
+        });
+    });
+}
+
+module.exports={
+    getEvents:getEvents,
+    createEvent:createEvent
+};

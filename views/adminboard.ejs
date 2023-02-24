@@ -22,11 +22,13 @@
 </style>
 
 <body>
+    <a href="/logout" class="btn bg-danger">logout</a>
     <h1>Students</h1>
 
     <div class="p-3 mb-2 bg-secondary text-dark flex-container">
         <!-- student site -->
-        <a class="card bg-info btn-warning" style="width: 18rem;" href="/user/create">create new user</a>
+        <a class="card bg-info btn-warning card-title text-center" style="width: 18rem;" href="/user/create">create new
+            user</a>
         <!-- loop สร้าง card user -->
         <% data.users.forEach(user=> { %>
             <div class="card bg-info btn-warning" style="width: 18rem;">
@@ -42,6 +44,7 @@
                                     id:<%- user._id %>
                     </p>
                     <a href="/user/<%-user._id%>" class="btn bg-warning">Edit</a>
+                    <a href="/user/delete/<%-user._id%>" class="btn bg-danger">Delete</a>
                 </div>
             </div>
             <% }) %>
@@ -51,6 +54,9 @@
     <h1>Events</h1>
 
     <div class="p-3 mb-2 bg-secondary text-dark flex-container">
+        <a href="/event/create" class="card bg-info btn-warning card-title text-center" style="width: 18rem;">
+            create new event
+        </a>
         <!-- events site -->
         <% data.events.forEach(event=> { %>
             <div class="card bg-info btn-warning" style="width: 18rem;">
@@ -74,7 +80,7 @@
                                                         <hr>
                                                         id:<%- event._id %>
                     </p>
-                    <a href="/event/<%-event._id%>" class="btn bg-warning">Edit</a>
+                    <a href="/event/delete/<%-event._id%>" class="btn bg-warning">Delete</a>
                 </div>
             </div>
             <% }) %>

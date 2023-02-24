@@ -34,9 +34,24 @@ function createUser(newUser){
     return new Promise((resolve, reject) => {
         users.create(newUser,(err,data)=>{
             if(err) reject(err);
-            resolve(data);
+            else resolve(data);
         });
     })
 }
 
-module.exports = {getUserId:getUserId, getUsers:getUsers, setUser:setUser, createUser:createUser};
+function deleteUser(in_json){
+    return new Promise((resolve, reject) => {
+        users.deleteOne(in_json,(err,data)=>{
+            if (err) reject(err);
+            else resolve(data);
+        })
+    })
+}
+
+module.exports = {
+    getUserId:getUserId,
+    getUsers:getUsers,
+    setUser:setUser,
+    createUser:createUser,
+    deleteUser:deleteUser
+    };

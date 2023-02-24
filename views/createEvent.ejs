@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/js/bootstrap.bundle.min.js">
+    <title>create Event</title>
+</head>
+
+<body>
+
+    <a href="/adminboard">back to admin board</a>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header bg-primary text-white">
+            create event
+        </div>
+        <ul class="list-group list-group-flush">
+            <form action="/event/create" method="post">
+                <input class="list-group-item" placeholder="title" name="title">
+                <input class="list-group-item" placeholder="discribe" name="discribe">
+                <input class="list-group-item" type="number" placeholder="year" name="start['year']">
+                <input class="list-group-item" type="number" placeholder="month" name="start['month']">
+                <input class="list-group-item" type="number" placeholder="day" name="start['day']">
+                <input class="list-group-item" type="number" placeholder="hour" name="start['hour']">
+                <input class="list-group-item" type="number" placeholder="minites" name="start['minites']">
+                <input class="list-group-item bg-primary" type="submit" value="create">
+            </form>
+        </ul>
+    </div>
+</body>
+
+</html>

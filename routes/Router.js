@@ -186,8 +186,21 @@ router.post('/event/create',(req,res,next)=>{
     }else{
         res.redirect('/admin');
     }
-},(req,res)=>{
-    res.send(req.body);
+},async (req,res)=>{
+    const payload=req.body
+    const newEvent = {
+        title: payload.title,
+        discribe: payload.discribe,
+        start:{
+            year: Number(payload.start.year),
+            month: Number(payload.start.month),
+            day: Number(payload.start.day),
+            hour: Number(payload.start.hour),
+            minites: Number(payload.start.minites)
+        }
+    };
+    await createEvent(newEvent);
+    res.redirect('/adminboard');
 });
 
 router.get('/logout', (req, res) => {

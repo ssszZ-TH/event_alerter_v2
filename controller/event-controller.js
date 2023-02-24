@@ -19,7 +19,17 @@ function createEvent(newEvent) {
     });
 }
 
+function deleteEvent(filter){
+    return new Promise((resolve, reject) => {
+        events.deleteOne(filter,(err,data)=>{
+            if(err) reject(err);
+            else resolve(data);
+        });
+    })
+}
+
 module.exports={
     getEvents:getEvents,
-    createEvent:createEvent
+    createEvent:createEvent,
+    deleteEvent:deleteEvent
 };

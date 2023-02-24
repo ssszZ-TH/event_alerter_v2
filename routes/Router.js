@@ -8,6 +8,7 @@ const createUser = require('../controller/user_controller.js').createUser;
 const deleteUser = require('../controller/user_controller.js').deleteUser;
 const getEvents = require('../controller/event-controller.js').getEvents;
 const createEvent = require('../controller/event-controller.js').createEvent;
+const deleteEvent = require('../controller/event-controller.js').deleteEvent;
 
 // a variable to save a session
 var session;
@@ -200,6 +201,19 @@ router.post('/event/create',(req,res,next)=>{
         }
     };
     await createEvent(newEvent);
+    res.redirect('/adminboard');
+});
+
+router.get('/event/delete/:id',(req,res,next)=>{
+    session = req.session;
+    if (session.adminid){
+        next();
+    }else{
+        res.redirect('/admin');
+    }
+},async (req,res)=>{
+    let id=req.params.id;
+    await deleteEvent({_id:id});
     res.redirect('/adminboard');
 });
 

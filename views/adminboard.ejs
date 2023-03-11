@@ -2,89 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/js/bootstrap.bundle.min.js">
-    <title>admin dashboard</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/js/bootstrap.bundle.min.js">
+  <title>admin dashboard</title>
 </head>
 
 <style>
-    .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .flex-container>div {
-        margin: 5px;
-    }
+  .flex-container>div {
+    margin: 5px;
+  }
 </style>
 
 <body>
-    <a href="/logout" class="btn bg-danger">logout</a>
-    <h1>Students</h1>
+  <a href="/logout" class="btn bg-danger">logout</a>
+  <h1>Students</h1>
 
-    <div class="p-3 mb-2 bg-secondary text-dark flex-container">
-        <!-- student site -->
-        <a class="card bg-info btn-warning card-title text-center" style="width: 18rem;" href="/user/create">create new
-            user</a>
-        <!-- loop สร้าง card user -->
-        <% data.users.forEach(user=> { %>
-            <div class="card bg-info btn-warning" style="width: 18rem;">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                    <h5 class="card-title text-center"><%- user.fname %> <%- user.lname %></h5>
-                    <p class="card-text">
+  <div class="p-3 mb-2 bg-secondary text-dark flex-container">
+    <!-- student site -->
+    <a class="card bg-info btn-warning card-title text-center" style="width: 18rem;" href="/user/create">create new
+      user</a>
+    <!-- loop สร้าง card user -->
+    <% data.users.forEach(user=> { %>
+    <div class="card bg-info btn-warning" style="width: 18rem;">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title text-center"><%- user.fname %> <%- user.lname %></h5>
+        <p class="card-text">
 
-                        username:<%- user.username %><br>
-                            password:<%- user.password %><br>
-                                score:<%- user.score %>
-                                    <hr>
-                                    id:<%- user._id %>
-                    </p>
-                    <a href="/user/<%-user._id%>" class="btn bg-warning">Edit</a>
-                    <a href="/user/delete/<%-user._id%>" class="btn bg-danger">Delete</a>
-                </div>
-            </div>
-            <% }) %>
+          username:<%- user.username %><br>
+          password:<%- user.password %><br>
+          score:<%- user.score %>
+          <hr>
+          id:<%- user._id %>
+        </p>
+        <a href="/user/<%-user._id%>" class="btn bg-warning">Edit</a>
+        <a href="/user/delete/<%-user._id%>" class="btn bg-danger">Delete</a>
+      </div>
     </div>
+    <% }) %>
+  </div>
 
 
-    <h1>Events</h1>
+  <h1>Events</h1>
 
-    <div class="p-3 mb-2 bg-secondary text-dark flex-container">
-        <a href="/event/create" class="card bg-info btn-warning card-title text-center" style="width: 18rem;">
-            create new event
-        </a>
-        <!-- events site -->
-        <% data.events.forEach(event=> { %>
-            <div class="card bg-info btn-warning" style="width: 18rem;">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <%- event.title %>
+  <div class="p-3 mb-2 bg-secondary text-dark flex-container">
+    <a href="/event/create" class="card bg-info btn-warning card-title text-center" style="width: 18rem;">
+      create new event
+    </a>
+    <!-- events site -->
+    <% data.events.forEach(event=> { %>
+    <div class="card bg-info btn-warning" style="width: 18rem;">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          <%- event.title %>
 
-                    </h5>
-                    <p class="card-text">
-                        <%- event.discribe %>
-                            <hr>
-                            คณะที่ต้องทำ <%- event.requireBranch %><br>
-                                รุ่นที่ต้องทำ <%- event.requireGen %>
-                                    <hr>
-                                    event start
-                                    <%- event.start.day %>
-                                        <%- event.start.month %>
-                                            <%- event.start.year %>
-                                                at<%- event.start.hour %>:<%- event.start.minites %>
-                                                        <hr>
-                                                        id:<%- event._id %>
-                    </p>
-                    <a href="/event/delete/<%-event._id%>" class="btn bg-warning">Delete</a>
-                </div>
-            </div>
-            <% }) %>
+        </h5>
+        <p class="card-text">
+          <%- event.discribe %>
+          <hr>
+          คณะที่ต้องทำ <%- event.requireBranch %><br>
+          รุ่นที่ต้องทำ <%- event.requireGen %>
+          <hr>
+          event start
+          <%- event.start.day %>
+          <%- event.start.month %>
+          <%- event.start.year %>
+          at<%- event.start.hour %>:<%- event.start.minites %>
+          <hr>
+          id:<%- event._id %>
+        </p>
+        <a href="/event/delete/<%-event._id%>" class="btn bg-warning">Delete</a>
+      </div>
     </div>
+    <% }) %>
+  </div>
 </body>
 
 </html>

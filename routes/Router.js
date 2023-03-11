@@ -18,7 +18,6 @@ router.get('/views/app.css', (req, res) => {
 });
 
 //หน้าที่ check ว่า ต้อง มีการ auth ป่าว หรือว่าไม่ต้อง auth ละ
-
 router.get('/', (req, res) => {
     session = req.session;
     if (session.userid) {
